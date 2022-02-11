@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block main %}
+<div class="row-content">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sondage</h3>
+            </div>
+            <ul class="list-group">
+                {% for poll in polls %}
+                <li class="list-group-item">
+                    <strong>{{ poll.question }}</strong>
+                    <span class="pull-right">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'vote' poll.id %}" class="btn btn-info btn-xs">Vote</a> &nbsp;
+                            <a href="{% url 'resultats' poll.id %}" class="btn btn-default btn-xs">Voir résultats</a>
+                        {% else %}&nbsp;
+                            <a href="{% url 'login' %}" class="btn btn-info btn-xs">Vote</a> &nbsp;
+                            <a href="{% url 'resultats' poll.id %}" class="btn btn-default btn-xs">Voir résultats</a>
+                        {% endif %}
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

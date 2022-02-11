@@ -1,0 +1,52 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+	</head>
+	<body>
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            {% if user.is_authenticated %}
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand waves-effect" href="{% url 'accueil' %}" style="font-size: x-large">Site de sondages</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto" id="navbar_content">
+						<li><a href="{% url 'accueil' %}" style="font-size: large">Accueil</a></li>
+						<li><a href="{% url 'creer' %}" style="font-size: large">Créer un sondage</a></li>
+                        <li><a href="{% url "logout" %}" style="font-size: large">Se déconnecter</a></li>
+					</ul>
+                </div>
+			</div>
+            {% else %}
+                <div class="navbar-header">
+					<a class="navbar-brand waves-effect" href="{% url 'accueil' %}" style="font-size: x-large">Site de sondages</a>
+				</div>
+                <a href="/"><i class="fa fa-home"></i></a>
+                <a href="{% url "accueil" %}" style="font-size: large"> Accueil </a>
+                <a href="{% url "login" %}" style="font-size: large"> Se connecter </a>
+            {% endif %}
+		</nav>
+		<div class="container">
+			{% block main %}{% endblock %}
+		</div>
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    </body>
+</html>
