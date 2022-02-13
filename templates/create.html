@@ -5,7 +5,7 @@
 
 {% block main %}
     {% if user.is_authenticated %}
-    <div class="row-content">
+    <div class="row" id="row-content">
         <div class="col-lg-8 col-lg-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="question">Entrez une question de sondage</label>
+                                    <label for="question">Entrez une question</label>
                                     {% render_field form.question class="form-control" rows="3" %}
                                 </div>
                             </div>

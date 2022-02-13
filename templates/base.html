@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{% block title %}{% endblock %}</title>
+		<title>{% block title %}Sondage App{% endblock %}</title>
 
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
@@ -18,11 +18,12 @@
 
 	</head>
 	<body>
-		<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <header class="navbar fixed-top navbar-expand-md navbar-light white scrolling-navbar">
+		<nav>
             {% if user.is_authenticated %}
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand waves-effect" href="{% url 'accueil' %}" style="font-size: x-large">Site de sondages</a>
+					<a class="navbar-brand waves-effect" href="{% url 'accueil' %}" id="name-site">Site de sondages</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto" id="navbar_content">
@@ -36,11 +37,16 @@
                 <div class="navbar-header">
 					<a class="navbar-brand waves-effect" href="{% url 'accueil' %}" style="font-size: x-large">Site de sondages</a>
 				</div>
-                <a href="/"><i class="fa fa-home"></i></a>
-                <a href="{% url "accueil" %}" style="font-size: large"> Accueil </a>
-                <a href="{% url "login" %}" style="font-size: large"> Se connecter </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" id="navbar_content">
+{#                    <a href="/"><i class="fa fa-home"></i></a>#}
+                    <li><a href="{% url "accueil" %}" style="font-size: large"> Accueil </a></li>
+                    <li><a href="{% url "login" %}" style="font-size: large"> Se connecter </a></li>
+                </ul>
+                </div>
             {% endif %}
 		</nav>
+        </header>
 		<div class="container">
 			{% block main %}{% endblock %}
 		</div>

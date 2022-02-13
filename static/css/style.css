@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "poppins-semibold", sans-serif;
+  color: black;
+  font-size: medium;
+}
+
+a {
+  text-decoration: none;
+}
+
+#name-site{
+  display: flex;
+  align-items: center;
+  font-size: x-large
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul li a {
+  display: flex;
+  padding: 0 15px;
+}
+#navbarSupportedContent {
+  display: flex;
+}
+
+header {
+  transition: ease-in-out 0.3s;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 999999;
+}
+
+header ul {
+    list-style: none;
+}
+
+#row-content {
+  margin-top: 100px;
+}
+
+.column {
+  margin-top: 100px;
+}
+
+#login {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+#form-login {
+display: flex;
+}
+
+.submit-part{
+  display: flex;
+}
+
+#register {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+.panel-default > .panel-heading {
+  color: #333;
+  border-color: rgba(245, 245, 220, .6);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel-title {
+  font-size: large;
+}
+
+.pull-right a{
+  font-size: 10px;
+}
+
+

@@ -69,7 +69,7 @@ def results(request, poll_id):
 class LoginFormView(FormView):
     template_name = 'login.html'
     form_class = LoginForm
-    success_url = "accueil"
+    success_url = "/"
 
     def form_valid(self, form):
         username = form.cleaned_data['username']
@@ -82,7 +82,6 @@ class LoginFormView(FormView):
                 f'Hello {user.username}'
             )
             return super().form_valid(form)
-
         return super().form_invalid(form)
 
 
@@ -90,7 +89,7 @@ class RegisterFormView(FormView):
     template_name = 'register.html'
     form_class = RegisterForm
     form = UserCreationForm()
-    success_url = "accueil"
+    success_url = "/"
 
     def form_valid(self, form):
         username = form.cleaned_data['username']

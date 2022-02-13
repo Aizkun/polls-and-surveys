@@ -5,27 +5,31 @@
     {% if user.is_authenticated %}
         <meta http-equiv="REFRESH" content="0;url={% url "accueil" %}">
     {% else %}
-        <h1>Connectez-vous !</h1>
-        <form action="" method="post">
-            {% csrf_token %}
-            {% if form.errors %}
-                {% for error in form.non_field_errors %}
-                    <h2 style="color: red">Erreur ! {{ error }}</h2>
-                {% endfor %}
-            {% endif %}
-            {% for field in form %}
-                {% if field.errors %}
-                    {% for error in field.errors %}
-                        <h2 style="color: red">{{ error }}</h2>
+        <div class="column">
+            <h1 id="login">Connectez-vous !</h1>
+            <form action="" method="post" id="form-login">
+                {% csrf_token %}
+                {% if form.errors %}
+                    {% for error in form.non_field_errors %}
+                        <h2 style="color: red">Erreur ! {{ error }}</h2>
                     {% endfor %}
                 {% endif %}
-                <p>
-                    <span>{{ field.label }}</span>
-                    {{ field }}
-                </p>
-            {% endfor %}
-            <button type="submit">Se connecter</button>
-            <a href="{% url "register" %}">Vous n'êtes pas inscrit ?</a>
-        </form>
+                {% for field in form %}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <h2 style="color: red">{{ error }}</h2>
+                        {% endfor %}
+                    {% endif %}
+                    <p>
+                        <span>{{ field.label }}</span>
+                        {{ field }}
+                    </p>
+                {% endfor %}
+                <div class="submit-part">
+                    <button type="submit">Se connecter</button>
+                    <a href="{% url "register" %}">Vous n'êtes pas inscrit ?</a>
+                </div>
+            </form>
+        </div>
     {% endif %}
 {% endblock %}
