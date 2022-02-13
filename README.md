@@ -9,3 +9,6 @@ Pour chaque sondage nous avons la possibilit√© de voter (seulement si l'on poss√
 ID: aizkun
 
 Passwword: Aizkun123
+
+### Installation
+Vous aurez besoin d'installer l'outils widget_tweaks, vous pourrez l'installer via la commande *pip install django-widget-tweaks*
